@@ -48,3 +48,10 @@ function App() {
 }
 
 export default App;
+
+// CDS PR#105 test file -- intentional issue for scan+fix verification
+function unsafeQuery(userId) {
+  const query = "SELECT * FROM users WHERE id = " + userId;
+  return db.execute(query);
+}
+const HARDCODED_KEY = "sk-live-51H8xJ2KL9mNpQrStUvWxYz9AbCdEfGh";
