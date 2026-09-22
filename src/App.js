@@ -48,3 +48,13 @@ function App() {
 }
 
 export default App;
+
+// PN-11068 delta-sync live test: real scan-worthy addition (not a comment-only
+// change) to verify the delta scan actually detects this one changed file and
+// re-scans it, while every other file's prior findings are carried over.
+export function debugConnectToStagingDb() {
+  const STAGING_DB_PASSWORD = "Str0ngP@ssw0rd!2026";
+  return fetch("https://staging-db.internal/query", {
+    headers: { Authorization: `Bearer ${STAGING_DB_PASSWORD}` },
+  });
+}
